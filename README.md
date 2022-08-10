@@ -12,8 +12,11 @@ These are an Azure Maps examples for the 3 ways to secure Azure Maps.
 
 ## Authentication
 - SubscriptionKey.
+  - TBD
 - Anonymous with Token.
-- Azure Active Directory. The recommended approach is to use AAD to secure a web app, [Choose an authentication and authorization scenario](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario).
+  - TBD
+- Azure Active Directory.
+  - The recommended approach is to use AAD to secure a web app, [Choose an authentication and authorization scenario](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario).
 
 ## Create the .Net 6.0 Application
 
