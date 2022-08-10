@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using SubscriptionKey.Models;
 using System.Diagnostics;
 
@@ -7,14 +8,20 @@ namespace SubscriptionKey.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger)
+        // IConfiguration Configuration
+        public HomeController(ILogger<HomeController> logger, IConfiguration Configuration)
         {
             _logger = logger;
+            _configuration = Configuration;
         }
 
         public IActionResult Index()
         {
+            // Save SubscriptionKey from Configuration Settings
+            ViewData["SubscriptionKey"] = _configuration.GetSection("AzureMaps").GetValue<string>("SubscriptionKey");
+
             return View();
         }
 

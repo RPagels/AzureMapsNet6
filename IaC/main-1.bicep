@@ -19,7 +19,7 @@ var keyvaultName = 'kv-${uniqueString(resourceGroup().id)}'
 
 // KeyVault Secret Names
 //param secret_AzureWebJobsStorageName string = 'AzureWebJobsStorage'
-param secret_ClientIdName string = 'ClientId'
+param KeyVault_ClientIdName string = 'ClientId'
 
 // Tags
 var defaultTags = {
@@ -93,8 +93,8 @@ module configsettingsmod './main-1-configsettings.bicep' = {
   name: 'configSettings'
   params: {
     keyvaultName: keyvaultName
-    secret_ClientIdValue: azuremapsmod.outputs.out_AzureMapsClientId
-    secret_ClientIdName: secret_ClientIdName
+    KeyVault_ClientIdValue: azuremapsmod.outputs.out_AzureMapsClientId
+    KeyVault_ClientIdName: KeyVault_ClientIdName
     tenant: subscription().tenantId
     appServiceprincipalId: webappmod.outputs.out_appServiceprincipalId
     webappName: webSiteName
