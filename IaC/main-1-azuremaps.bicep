@@ -25,4 +25,4 @@ resource azuremaps 'Microsoft.Maps/accounts@2021-12-01-preview' = {
 
 output out_AzureMapsAppKey string = azuremaps.id
 output out_AzureMapsClientId string = azuremaps.properties.uniqueId
-
+output out_AzureMapsSubscriptionKey string = azuremaps.listKeys().primaryKey

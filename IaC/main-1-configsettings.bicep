@@ -1,5 +1,7 @@
 param keyvaultName string
-param webappName string
+param webappName1 string
+param webappName2 string
+param webappName3 string
 //param functionAppName string
 // param secret_AzureWebJobsStorageName string
 // param secret_WebsiteContentAzureFileConnectionStringName string
@@ -79,11 +81,11 @@ resource secret1 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
 
 // Reference Existing resource
 resource existing_appService 'Microsoft.Web/sites@2021-03-01' existing = {
-  name: webappName
+  name: webappName1
 }
 
 // Create Web sites/config 'appsettings' - Web App
-resource webSiteAppSettingsStrings 'Microsoft.Web/sites/config@2021-03-01' = {
+resource webSiteAppSettingsStrings1 'Microsoft.Web/sites/config@2021-03-01' = {
   name: 'appsettings'
   parent: existing_appService
   properties: {

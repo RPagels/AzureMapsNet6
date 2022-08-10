@@ -11,7 +11,9 @@ var appInsightsName = 'appi-${uniqueString(resourceGroup().id)}'
 var appInsightsWorkspaceName = 'appw-${uniqueString(resourceGroup().id)}'
 var appInsightsAlertName = 'responsetime-${uniqueString(resourceGroup().id)}'
 var webAppPlanName = 'plan-${uniqueString(resourceGroup().id)}'
-var webSiteName = 'app-${uniqueString(resourceGroup().id)}'
+var webSiteName1 = 'app1-${uniqueString(resourceGroup().id)}'
+var webSiteName2 = 'app2-${uniqueString(resourceGroup().id)}'
+var webSiteName3 = 'app3-${uniqueString(resourceGroup().id)}'
 var azuremapname = 'maps-${uniqueString(resourceGroup().id)}'
 var functionAppName = 'func-${uniqueString(resourceGroup().id)}'
 var functionAppServicePlanName = 'funcplan-${uniqueString(resourceGroup().id)}'
@@ -60,7 +62,9 @@ module webappmod './main-1-webapp.bicep' = {
   name: 'webappdeploy'
   params: {
     webAppPlanName: webAppPlanName
-    webSiteName: webSiteName
+    webSiteName1: webSiteName1
+    webSiteName2: webSiteName1
+    webSiteName3: webSiteName1
     location: location
     appInsightsInstrumentationKey: appinsightsmod.outputs.out_appInsightsInstrumentationKey
     appInsightsConnectionString: appinsightsmod.outputs.out_appInsightsConnectionString
@@ -96,8 +100,10 @@ module configsettingsmod './main-1-configsettings.bicep' = {
     KeyVault_ClientIdValue: azuremapsmod.outputs.out_AzureMapsClientId
     KeyVault_ClientIdName: KeyVault_ClientIdName
     tenant: subscription().tenantId
-    appServiceprincipalId: webappmod.outputs.out_appServiceprincipalId
-    webappName: webSiteName
+    appServiceprincipalId: webappmod.outputs.out_appServiceprincipalId1
+    webappName1: webSiteName1
+    webappName2: webSiteName2
+    webappName3: webSiteName3
     //functionAppName: functionAppName
     funcAppServiceprincipalId: functionappmod.outputs.out_funcAppServiceprincipalId
     //secret_AzureWebJobsStorageName: secret_AzureWebJobsStorageName
@@ -113,6 +119,8 @@ module configsettingsmod './main-1-configsettings.bicep' = {
  }
 
 // Output Params used for IaC deployment in pipeline
-output out_webSiteName string = webSiteName
+output out_webSiteName1 string = webSiteName1
+output out_webSiteName2 string = webSiteName2
+output out_webSiteName3 string = webSiteName3
 output out_azuremapname string = azuremapname
 output out_functionAppName string = functionAppName

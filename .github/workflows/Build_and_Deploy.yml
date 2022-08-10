@@ -82,7 +82,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     outputs:
-      output_webSiteName: ${{ steps.Infra.outputs.out_webSiteName }}
+      output_webSiteName1: ${{ steps.Infra.outputs.out_webSiteName1 }}
+      output_webSiteName2: ${{ steps.Infra.outputs.out_webSiteName2 }}
+      output_webSiteName3: ${{ steps.Infra.outputs.out_webSiteName3 }}
       
     steps:
     - name: Login to Azure
@@ -167,7 +169,7 @@ jobs:
       id: deploy-to-webapp-subscriptionkey
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ needs.deploy_infrastructure.outputs.output_webSiteName }}
+        app-name: ${{ needs.deploy_infrastructure.outputs.output_webSiteName1 }}
         package: './web/subscriptionkey'
 
     # Anonymous
@@ -183,7 +185,7 @@ jobs:
       id: deploy-to-webapp-anonymous
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ needs.deploy_infrastructure.outputs.output_webSiteName }}
+        app-name: ${{ needs.deploy_infrastructure.outputs.output_webSiteName2 }}
         package: './web/anonymous'
 
     - name: Ensure Resource Group is Locked
