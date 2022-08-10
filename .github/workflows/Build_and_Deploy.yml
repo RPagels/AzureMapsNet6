@@ -164,7 +164,7 @@ jobs:
 
     # Deploy Web Application
     - name: 'Deploy to Azure WebApp'
-      id: deploy-to-webapp 
+      id: deploy-to-webapp-subscriptionkey
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ needs.deploy_infrastructure.outputs.output_webSiteName }}
@@ -180,7 +180,7 @@ jobs:
 
     # Deploy Web Application
     - name: 'Deploy to Azure WebApp'
-      id: deploy-to-webapp 
+      id: deploy-to-webapp-anonymous
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ needs.deploy_infrastructure.outputs.output_webSiteName }}
