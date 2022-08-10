@@ -39,12 +39,12 @@ jobs:
     - name: Restore
       run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
     - name: Build
-      run: dotnet build ${{env.AZURE_WEBAPP_NAME }}/SubscriptionKey/SubscriptionKey.csproj --configuration ${{ env.CONFIGURATION }} --no-restore
+      run: dotnet build ./${{env.AZURE_WEBAPP_NAME }}/SubscriptionKey/SubscriptionKey.csproj --configuration ${{ env.CONFIGURATION }} --no-restore
 
     - name: Test
       run: dotnet test "${{ env.WORKING_DIRECTORY }}" --no-build
     - name: Publish
-      run: dotnet publish ${{env.AZURE_WEBAPP_NAME }}/SubscriptionKey/SubscriptionKey.csproj --configuration ${{ env.CONFIGURATION }} --no-build --output './web/subscriptionkey'
+      run: dotnet publish ./${{env.AZURE_WEBAPP_NAME }}/SubscriptionKey/SubscriptionKey.csproj --configuration ${{ env.CONFIGURATION }} --no-build --output './web/subscriptionkey'
 
     - name: Upload Build Artifacts
       if: ${{ github.event_name != 'pull_request' }}
