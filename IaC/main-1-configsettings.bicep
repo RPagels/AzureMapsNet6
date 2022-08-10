@@ -6,11 +6,6 @@ param webappName string
 param appInsightsInstrumentationKey string
 param appInsightsConnectionString string
 
-param secret_AppKeyName string
-
-@secure()
-param secret_AppKeyValue string
-
 param secret_ClientIdName string
 
 @secure()
@@ -75,15 +70,6 @@ resource keyvaultaccessmod 'Microsoft.KeyVault/vaults/accessPolicies@2022-07-01'
 
 // Create KeyVault Secrets
 resource secret1 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-  name: secret_AppKeyName
-  parent: existing_keyvault
-  properties: {
-    value: secret_AppKeyValue
-  }
-}
-
-// Create KeyVault Secrets
-resource secret2 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
   name: secret_ClientIdName
   parent: existing_keyvault
   properties: {
@@ -111,13 +97,10 @@ resource webSiteAppSettingsStrings 'Microsoft.Web/sites/config@2021-03-01' = {
     'AzureMaps:AadAppId': 'c0d1eb87-0cec-40aa-a7d5-87b5f9c09ee7'
     'AzureMaps:AadTenant': '72f988bf-86f1-41af-91ab-2d7cd011db47'
     'AzureMaps:ClientId': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${secret_ClientIdName})'
-    'AzureMaps:AppKey': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${secret_AppKeyName})'
-    'Debug Only1': 'AppKey = ${secret_AppKeyValue}'
-    'Debug Only2': 'ClientId = ${secret_ClientIdValue}'
+    'Debug Only': 'ClientId = ${secret_ClientIdValue}'
   }
   dependsOn: [
     secret1
-    secret2
   ]
 }
 

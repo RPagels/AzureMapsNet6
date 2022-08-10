@@ -19,13 +19,11 @@ var keyvaultName = 'kv-${uniqueString(resourceGroup().id)}'
 
 // KeyVault Secret Names
 //param secret_AzureWebJobsStorageName string = 'AzureWebJobsStorage'
-param secret_AppKeyName string = 'AppKey'
-param secret_AppKeyValue string = 'H~T8Q~MABqEuVvEtpLFnt65LTylFxr_2aJaGXbup'
 param secret_ClientIdName string = 'ClientId'
 
 // Tags
 var defaultTags = {
-  App: 'Azure Maps Blazor'
+  App: 'Azure Maps Net 6.0'
   CostCenter: costCenter
   CreatedBy: createdBy
 }
@@ -95,8 +93,6 @@ module configsettingsmod './main-1-configsettings.bicep' = {
   name: 'configSettings'
   params: {
     keyvaultName: keyvaultName
-    secret_AppKeyName: secret_AppKeyName
-    secret_AppKeyValue: secret_AppKeyValue
     secret_ClientIdValue: azuremapsmod.outputs.out_AzureMapsClientId
     secret_ClientIdName: secret_ClientIdName
     tenant: subscription().tenantId

@@ -3,22 +3,6 @@ param vaultName string
 param tenant string = subscription().tenantId
 
 param accessPolicies array = []
-// param accessPolicies array = [
-//   {
-//     tenantId: tenant
-//     objectId: object
-//     permissions: {
-//       keys: [
-//         'Get'
-//         'List'
-//       ]
-//       secrets: [
-//         'Get'
-//         'List'
-//       ]
-//     }
-//   }
-// ]
 
 param networkAcls object = {
   ipRules: []
