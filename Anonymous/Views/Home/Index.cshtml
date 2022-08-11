@@ -8,7 +8,6 @@
 <div class="text-center">
     <h1 class="display-4">using Anonymous with Token</h1>
     <p>Learn about <a href="https://docs.microsoft.com/azure/azure-maps/">building Azure Maps apps with ASP.NET Core</a>.</p>
-    Client Id = @ViewData["ClientId"]
 </div>
 
 <div id="myMap" style="width:100%;min-width:290px;height:450px;"></div>
@@ -44,15 +43,13 @@
             authOptions: {
                 //Use Azure Active Directory authentication.
                 authType: 'anonymous',
-                clientId: '@ViewData["ClientId"]', //'e41868d1- 60ab- 4191 - 8f3f - c053f6a2757c', //Your Azure Maps client id for accessing your Azure Maps account.
+                clientId: '@ViewData["ClientId"]', //Your Azure Maps client id for accessing your Azure Maps account.
                 getToken: function (resolve, reject, map) {
+
                     //URL to your authentication service that retrieves an Azure Active Directory Token.
                     var tokenServiceUrl = "/api/GetAzureMapsToken";
                     fetch(tokenServiceUrl).then(r => r.text()).then(token => resolve(token));
                 }
-                //Alternatively, use an Azure Maps key. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
-                //authType: 'subscriptionKey',
-                //subscriptionKey: '@ViewData["subscriptionKey"]'
             }
         });
         //Wait until the map resources are ready.
