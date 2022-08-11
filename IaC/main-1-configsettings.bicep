@@ -13,6 +13,11 @@ param KeyVault_ClientIdName string
 @secure()
 param KeyVault_ClientIdValue string
 
+param KeyVault_SubscriptionKeyName string
+
+@secure()
+param KeyVault_SubscriptionKeyValue string
+
 @secure()
 param appServiceprincipalId string
 
@@ -80,21 +85,21 @@ resource secret1 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
 }
 
 // Reference Existing resource
-resource existing_appService 'Microsoft.Web/sites@2021-03-01' existing = {
+resource existing_appService1 'Microsoft.Web/sites@2021-03-01' existing = {
   name: webappName1
 }
 
 // Create Web sites/config 'appsettings' - Web App
 resource webSiteAppSettingsStrings1 'Microsoft.Web/sites/config@2021-03-01' = {
   name: 'appsettings'
-  parent: existing_appService
+  parent: existing_appService1
   properties: {
     WEBSITE_RUN_FROM_PACKAGE: '1'
     APPINSIGHTS_INSTRUMENTATIONKEY: appInsightsInstrumentationKey
     APPINSIGHTS_PROFILERFEATURE_VERSION: '1.0.0'
     APPINSIGHTS_SNAPSHOTFEATURE_VERSION: '1.0.0'
     APPLICATIONINSIGHTS_CONNECTION_STRING: appInsightsConnectionString
-    WebAppUrl: 'https://${existing_appService.name}.azurewebsites.net/'
+    WebAppUrl: 'https://${existing_appService1.name}.azurewebsites.net/'
     ASPNETCORE_ENVIRONMENT: 'Development'
     'AzureMaps:AadAppId': 'c0d1eb87-0cec-40aa-a7d5-87b5f9c09ee7'
     'AzureMaps:AadTenant': '72f988bf-86f1-41af-91ab-2d7cd011db47'
@@ -106,5 +111,42 @@ resource webSiteAppSettingsStrings1 'Microsoft.Web/sites/config@2021-03-01' = {
   ]
 }
 
+// Create KeyVault Secrets
+resource secret2 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
+  name: KeyVault_SubscriptionKeyName
+  parent: existing_keyvault
+  properties: {
+    value: KeyVault_SubscriptionKeyValue
+  }
+}
+
+// Reference Existing resource
+resource existing_appService2 'Microsoft.Web/sites@2021-03-01' existing = {
+  name: webappName2
+}
+
+// Create Web sites/config 'appsettings' - Web App
+resource webSiteAppSettingsStrings2 'Microsoft.Web/sites/config@2021-03-01' = {
+  name: 'appsettings'
+  parent: existing_appService2
+  properties: {
+    WEBSITE_RUN_FROM_PACKAGE: '1'
+    APPINSIGHTS_INSTRUMENTATIONKEY: appInsightsInstrumentationKey
+    APPINSIGHTS_PROFILERFEATURE_VERSION: '1.0.0'
+    APPINSIGHTS_SNAPSHOTFEATURE_VERSION: '1.0.0'
+    APPLICATIONINSIGHTS_CONNECTION_STRING: appInsightsConnectionString
+    WebAppUrl: 'https://${existing_appService2.name}.azurewebsites.net/'
+    ASPNETCORE_ENVIRONMENT: 'Development'
+    'AzureMaps:AadAppId': 'c0d1eb87-0cec-40aa-a7d5-87b5f9c09ee7'
+    'AzureMaps:AadTenant': '72f988bf-86f1-41af-91ab-2d7cd011db47'
+    'AzureMaps:ClientId': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_ClientIdName})'
+    'AzureMaps:SubscriptionKey': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_SubscriptionKeyName})'
+    'Debug Only1': 'ClientId = ${KeyVault_ClientIdValue}'
+    'Debug Only2': 'ClientId = ${KeyVault_SubscriptionKeyValue}'
+  }
+  dependsOn: [
+    secret2
+  ]
+}
 
 
