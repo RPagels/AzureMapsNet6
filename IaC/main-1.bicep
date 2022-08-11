@@ -102,6 +102,7 @@ module configsettingsmod './main-1-configsettings.bicep' = {
     KeyVault_ClientIdName: KeyVault_ClientIdName
     tenant: subscription().tenantId
     appServiceprincipalId: webappmod.outputs.out_appServiceprincipalId1
+    azuremapname: azuremapname
     webappName1: webSiteName1
     webappName2: webSiteName2
     webappName3: webSiteName3

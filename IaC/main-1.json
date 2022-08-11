@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.9.1.41621",
-      "templateHash": "8576499459783238554"
+      "templateHash": "7251317291420383832"
     }
   },
   "parameters": {
@@ -901,6 +901,9 @@
           "appServiceprincipalId": {
             "value": "[reference(resourceId('Microsoft.Resources/deployments', 'webappdeploy')).outputs.out_appServiceprincipalId1.value]"
           },
+          "azuremapname": {
+            "value": "[variables('azuremapname')]"
+          },
           "webappName1": {
             "value": "[variables('webSiteName1')]"
           },
@@ -933,11 +936,14 @@
             "_generator": {
               "name": "bicep",
               "version": "0.9.1.41621",
-              "templateHash": "7256996670956589492"
+              "templateHash": "7162796998453503881"
             }
           },
           "parameters": {
             "keyvaultName": {
+              "type": "string"
+            },
+            "azuremapname": {
               "type": "string"
             },
             "webappName1": {
@@ -1073,7 +1079,8 @@
                 "AzureMaps:ClientId": "[format('@Microsoft.KeyVault(VaultName={0};SecretName={1})', parameters('keyvaultName'), parameters('KeyVault_ClientIdName'))]",
                 "AzureMaps:SubscriptionKey": "[format('@Microsoft.KeyVault(VaultName={0};SecretName={1})', parameters('keyvaultName'), parameters('KeyVault_SubscriptionKeyName'))]",
                 "Debug Only1": "[format('ClientId = {0}', parameters('KeyVault_ClientIdValue'))]",
-                "Debug Only2": "[format('ClientId = {0}', parameters('KeyVault_SubscriptionKeyValue'))]"
+                "Debug Only2": "[format('SubscriptionKey = {0}', parameters('KeyVault_SubscriptionKeyValue'))]",
+                "Debug Only3": "[format('Existing_SubscriptionKey = {0}', listKeys(resourceId('Microsoft.Maps/accounts', parameters('azuremapname')), '2021-12-01-preview').primaryKey)]"
               },
               "dependsOn": [
                 "[resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyvaultName'), parameters('KeyVault_SubscriptionKeyName'))]"

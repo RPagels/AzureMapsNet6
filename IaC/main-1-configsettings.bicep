@@ -1,4 +1,5 @@
 param keyvaultName string
+param azuremapname string
 param webappName1 string
 param webappName2 string
 param webappName3 string
@@ -111,6 +112,13 @@ resource webSiteAppSettingsStrings1 'Microsoft.Web/sites/config@2021-03-01' = {
   ]
 }
 
+
+// Reference Existing resource
+resource existing_azuremaps 'Microsoft.Maps/accounts@2021-12-01-preview' existing = {
+  name: azuremapname
+}
+var AzureMapsSubscriptionKeyString = existing_azuremaps.listKeys().primaryKey
+
 // Create KeyVault Secrets
 resource secret2 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
   name: KeyVault_SubscriptionKeyName
@@ -142,7 +150,8 @@ resource webSiteAppSettingsStrings2 'Microsoft.Web/sites/config@2021-03-01' = {
     'AzureMaps:ClientId': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_ClientIdName})'
     'AzureMaps:SubscriptionKey': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_SubscriptionKeyName})'
     'Debug Only1': 'ClientId = ${KeyVault_ClientIdValue}'
-    'Debug Only2': 'ClientId = ${KeyVault_SubscriptionKeyValue}'
+    'Debug Only2': 'SubscriptionKey = ${KeyVault_SubscriptionKeyValue}'
+    'Debug Only3': 'Existing_SubscriptionKey = ${AzureMapsSubscriptionKeyString}'
   }
   dependsOn: [
     secret2
