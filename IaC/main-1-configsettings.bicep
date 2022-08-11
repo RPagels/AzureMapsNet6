@@ -22,11 +22,11 @@ param KeyVault_SubscriptionKeyValue string
 @secure()
 param appServiceprincipalId1 string
 
-@secure()
-param appServiceprincipalId2 string
+// @secure()
+// param appServiceprincipalId2 string
 
-@secure()
-param appServiceprincipalId3 string
+// @secure()
+// param appServiceprincipalId3 string
 
 @secure()
 param funcAppServiceprincipalId string
@@ -52,34 +52,34 @@ param accessPolicies array = [
       ]
     }
   }
-  {
-    tenantId: tenant
-    objectId: appServiceprincipalId2
-    permissions: {
-      keys: [
-        'Get'
-        'List'
-      ]
-      secrets: [
-        'Get'
-        'List'
-      ]
-    }
-  }
-  {
-    tenantId: tenant
-    objectId: appServiceprincipalId3
-    permissions: {
-      keys: [
-        'Get'
-        'List'
-      ]
-      secrets: [
-        'Get'
-        'List'
-      ]
-    }
-  }
+  // {
+  //   tenantId: tenant
+  //   objectId: appServiceprincipalId2
+  //   permissions: {
+  //     keys: [
+  //       'Get'
+  //       'List'
+  //     ]
+  //     secrets: [
+  //       'Get'
+  //       'List'
+  //     ]
+  //   }
+  // }
+  // {
+  //   tenantId: tenant
+  //   objectId: appServiceprincipalId3
+  //   permissions: {
+  //     keys: [
+  //       'Get'
+  //       'List'
+  //     ]
+  //     secrets: [
+  //       'Get'
+  //       'List'
+  //     ]
+  //   }
+  // }
   {
     tenantId: tenant
     objectId: funcAppServiceprincipalId
@@ -188,6 +188,7 @@ resource webSiteAppSettingsStrings2 'Microsoft.Web/sites/config@2021-03-01' = {
     'Debug Only3': 'Existing_SubscriptionKey = ${AzureMapsSubscriptionKeyString}'
   }
   dependsOn: [
+    secret1
     secret2
   ]
 }
