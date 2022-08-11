@@ -49,6 +49,24 @@ resource webSiteAppSettingsStrings1 'Microsoft.Web/sites/config@2021-03-01' = {
   }
 }
 
+//
+// TEST 
+//
+// Azure Maps Data Reader	Grants access to read map related data
+// resource roleAssignmentForAppService1 'Microsoft.Authorization/roleAssignments@2020-10-01-preview' = {
+//   name: webSiteName1
+//   scope: appService1
+//   properties: {
+//     principalType: 'ServicePrincipal'
+//     principalId: appService1.identity.principalId
+//     roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '423170ca-a8f6-4b0f-8487-9e4eb8f49bfa')
+//   }
+// }
+
+//
+// TEST 
+//
+
 resource appService2 'Microsoft.Web/sites@2021-03-01' = {
   name: webSiteName2 // Globally unique app serivce name
   location: location
