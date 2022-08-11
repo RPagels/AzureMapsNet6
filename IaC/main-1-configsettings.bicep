@@ -142,6 +142,7 @@ resource webSiteAppSettingsStrings1 'Microsoft.Web/sites/config@2021-03-01' = {
     'AzureMaps:AadAppId': 'c0d1eb87-0cec-40aa-a7d5-87b5f9c09ee7'
     'AzureMaps:AadTenant': '72f988bf-86f1-41af-91ab-2d7cd011db47'
     'AzureMaps:ClientId': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_ClientIdName})'
+    'AzureMaps:SubscriptionKey': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_SubscriptionKeyName})'
     'Debug Only1': 'ClientId = ${KeyVault_ClientIdValue}'
     'Debug Only2': 'SubscriptionKey = ${AzureMapsSubscriptionKeyString}'
   }
