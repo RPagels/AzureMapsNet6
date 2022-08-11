@@ -20,7 +20,13 @@ param KeyVault_SubscriptionKeyName string
 param KeyVault_SubscriptionKeyValue string
 
 @secure()
-param appServiceprincipalId string
+param appServiceprincipalId1 string
+
+@secure()
+param appServiceprincipalId2 string
+
+@secure()
+param appServiceprincipalId3 string
 
 @secure()
 param funcAppServiceprincipalId string
@@ -34,7 +40,35 @@ param tenant string
 param accessPolicies array = [
   {
     tenantId: tenant
-    objectId: appServiceprincipalId
+    objectId: appServiceprincipalId1
+    permissions: {
+      keys: [
+        'Get'
+        'List'
+      ]
+      secrets: [
+        'Get'
+        'List'
+      ]
+    }
+  }
+  {
+    tenantId: tenant
+    objectId: appServiceprincipalId2
+    permissions: {
+      keys: [
+        'Get'
+        'List'
+      ]
+      secrets: [
+        'Get'
+        'List'
+      ]
+    }
+  }
+  {
+    tenantId: tenant
+    objectId: appServiceprincipalId3
     permissions: {
       keys: [
         'Get'
