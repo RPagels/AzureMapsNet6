@@ -22,8 +22,8 @@ param KeyVault_SubscriptionKeyValue string
 @secure()
 param appServiceprincipalId1 string
 
-// @secure()
-// param appServiceprincipalId2 string
+@secure()
+param appServiceprincipalId2 string
 
 // @secure()
 // param appServiceprincipalId3 string
@@ -52,20 +52,20 @@ param accessPolicies array = [
       ]
     }
   }
-  // {
-  //   tenantId: tenant
-  //   objectId: appServiceprincipalId2
-  //   permissions: {
-  //     keys: [
-  //       'Get'
-  //       'List'
-  //     ]
-  //     secrets: [
-  //       'Get'
-  //       'List'
-  //     ]
-  //   }
-  // }
+  {
+    tenantId: tenant
+    objectId: appServiceprincipalId2
+    permissions: {
+      keys: [
+        'Get'
+        'List'
+      ]
+      secrets: [
+        'Get'
+        'List'
+      ]
+    }
+  }
   // {
   //   tenantId: tenant
   //   objectId: appServiceprincipalId3
