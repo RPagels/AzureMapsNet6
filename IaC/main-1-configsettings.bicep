@@ -139,8 +139,6 @@ resource webSiteAppSettingsStrings1 'Microsoft.Web/sites/config@2021-03-01' = {
     APPLICATIONINSIGHTS_CONNECTION_STRING: appInsightsConnectionString
     WebAppUrl: 'https://${existing_appService1.name}.azurewebsites.net/'
     ASPNETCORE_ENVIRONMENT: 'Development'
-    'AzureMaps:AadAppId': 'c0d1eb87-0cec-40aa-a7d5-87b5f9c09ee7'
-    'AzureMaps:AadTenant': '72f988bf-86f1-41af-91ab-2d7cd011db47'
     'AzureMaps:ClientId': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_ClientIdName})'
     'AzureMaps:SubscriptionKey': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_SubscriptionKeyName})'
     'Debug Only1': 'ClientId = ${KeyVault_ClientIdValue}'
@@ -177,8 +175,6 @@ resource webSiteAppSettingsStrings2 'Microsoft.Web/sites/config@2021-03-01' = {
     APPLICATIONINSIGHTS_CONNECTION_STRING: appInsightsConnectionString
     WebAppUrl: 'https://${existing_appService2.name}.azurewebsites.net/'
     ASPNETCORE_ENVIRONMENT: 'Development'
-    'AzureMaps:AadAppId': 'c0d1eb87-0cec-40aa-a7d5-87b5f9c09ee7'
-    'AzureMaps:AadTenant': '72f988bf-86f1-41af-91ab-2d7cd011db47'
     'AzureMaps:ClientId': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_ClientIdName})'
     'AzureMaps:SubscriptionKey': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_SubscriptionKeyName})'
     'Debug Only1': 'ClientId = ${KeyVault_ClientIdValue}'
@@ -207,8 +203,6 @@ resource webSiteAppSettingsStrings3 'Microsoft.Web/sites/config@2021-03-01' = {
     APPLICATIONINSIGHTS_CONNECTION_STRING: appInsightsConnectionString
     WebAppUrl: 'https://${existing_appService3.name}.azurewebsites.net/'
     ASPNETCORE_ENVIRONMENT: 'Development'
-    'AzureMaps:AadAppId': 'c0d1eb87-0cec-40aa-a7d5-87b5f9c09ee7'
-    'AzureMaps:AadTenant': '72f988bf-86f1-41af-91ab-2d7cd011db47'
     'AzureMaps:ClientId': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_ClientIdName})'
     'AzureMaps:SubscriptionKey': '@Microsoft.KeyVault(VaultName=${keyvaultName};SecretName=${KeyVault_SubscriptionKeyName})'
     'Debug Only1': 'ClientId = ${KeyVault_ClientIdValue}'
