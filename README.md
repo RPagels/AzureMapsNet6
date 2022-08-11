@@ -3,8 +3,12 @@
 ## Introduction
 These are an Azure Maps examples for the 3 ways to secure Azure Maps.
 
+## Build & Deploy Status
+[![Build_and_Deploy](https://github.com/RPagels/AzureMapsNet6/actions/workflows/Build_and_Deploy.yml/badge.svg)](https://github.com/RPagels/AzureMapsNet6/actions/workflows/Build_and_Deploy.yml)
+
 ## Azure Maps Authentication Approaches
-- Azure Maps Subscription Key only
+- Azure Maps Subscription Key only, local machine
+- Azure Maps Subscription Key only, Web App using Key Vault
 - Azure Maps + GetAzureMapsToken() = Anonymous
 - Azure Maps + GetAzureMapsToken() + .net/AAD Authentication = Authentication
 
@@ -34,8 +38,6 @@ These are an Azure Maps examples for the 3 ways to secure Azure Maps.
 - step 1
 - step 2
 - step 3
-
-## Build & Deploy Status
 
 ## Resources
 - Examples based on the following
