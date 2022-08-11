@@ -73,12 +73,12 @@ jobs:
 
     ## Authentication AAD
     - name: Build
-      run: dotnet build ./Anonymous/Anonymous.csproj --configuration ${{ env.CONFIGURATION }} --no-restore
+      run: dotnet build ./AuthenticationAAD/AuthenticationAAD.csproj --configuration ${{ env.CONFIGURATION }} --no-restore
 
     - name: Test
       run: dotnet test "${{ env.WORKING_DIRECTORY }}" --no-build
     - name: Publish
-      run: dotnet publish ./Anonymous/Anonymous.csproj --configuration ${{ env.CONFIGURATION }} --no-build --output './web3/authaad'
+      run: dotnet publish ./AuthenticationAAD/AuthenticationAAD.csproj --configuration ${{ env.CONFIGURATION }} --no-build --output './web3/authaad'
 
     - name: Upload Build Artifacts
       if: ${{ github.event_name != 'pull_request' }}
