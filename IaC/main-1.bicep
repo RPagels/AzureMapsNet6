@@ -64,8 +64,8 @@ module webappmod './main-1-webapp.bicep' = {
   params: {
     webAppPlanName: webAppPlanName
     webSiteName1: webSiteName1
-    webSiteName2: webSiteName1
-    webSiteName3: webSiteName1
+    webSiteName2: webSiteName2
+    webSiteName3: webSiteName3
     location: location
     appInsightsInstrumentationKey: appinsightsmod.outputs.out_appInsightsInstrumentationKey
     appInsightsConnectionString: appinsightsmod.outputs.out_appInsightsConnectionString

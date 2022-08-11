@@ -84,7 +84,7 @@ jobs:
     outputs:
       output_webSiteName1: ${{ steps.Infra.outputs.out_webSiteName1 }}
       output_webSiteName2: ${{ steps.Infra.outputs.out_webSiteName2 }}
-      output_webSiteName3: ${{ steps.Infra.outputs.out_webSiteName3 }}
+      #output_webSiteName3: ${{ steps.Infra.outputs.out_webSiteName3 }}
       
     steps:
     - name: Login to Azure
@@ -139,7 +139,7 @@ jobs:
     needs: deploy_infrastructure
     environment:
       name: 'Development'
-      url: ${{ steps.deploy_infrastructure.outputs.output_webAppName }}
+      #url: ${{ steps.deploy_infrastructure.outputs.output_webAppName }}
 
     steps:
     - name: Login to Azure
