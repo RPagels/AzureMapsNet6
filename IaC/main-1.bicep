@@ -103,13 +103,12 @@ module configsettingsmod './main-1-configsettings.bicep' = {
     tenant: subscription().tenantId
     appServiceprincipalId1: webappmod.outputs.out_appServiceprincipalId1
     appServiceprincipalId2: webappmod.outputs.out_appServiceprincipalId2
-    // appServiceprincipalId3: webappmod.outputs.out_appServiceprincipalId3
+    appServiceprincipalId3: webappmod.outputs.out_appServiceprincipalId3
     azuremapname: azuremapname
     webappName1: webSiteName1
     webappName2: webSiteName2
     webappName3: webSiteName3
     KeyVault_SubscriptionKeyName: KeyVault_SubscriptionKeyName
-    KeyVault_SubscriptionKeyValue: azuremapsmod.outputs.out_AzureMapsSubscriptionKey
     //functionAppName: functionAppName
     funcAppServiceprincipalId: functionappmod.outputs.out_funcAppServiceprincipalId
     //secret_AzureWebJobsStorageName: secret_AzureWebJobsStorageName
