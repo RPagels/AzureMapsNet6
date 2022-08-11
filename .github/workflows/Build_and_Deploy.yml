@@ -71,6 +71,22 @@ jobs:
         name: Web
         path: ${{ github.workspace }}/web/anonymous
 
+    ## Authentication AAD
+    - name: Build
+      run: dotnet build ./Anonymous/Anonymous.csproj --configuration ${{ env.CONFIGURATION }} --no-restore
+
+    - name: Test
+      run: dotnet test "${{ env.WORKING_DIRECTORY }}" --no-build
+    - name: Publish
+      run: dotnet publish ./Anonymous/Anonymous.csproj --configuration ${{ env.CONFIGURATION }} --no-build --output './web/authaad'
+
+    - name: Upload Build Artifacts
+      if: ${{ github.event_name != 'pull_request' }}
+      uses: actions/upload-artifact@v3
+      with:
+        name: Web
+        path: ${{ github.workspace }}/web/authaad
+
     - name: Upload Infrastucture Files
       if: ${{ github.event_name != 'pull_request' }}
       uses: actions/upload-artifact@v3
@@ -84,7 +100,7 @@ jobs:
     outputs:
       output_webSiteName1: ${{ steps.Infra.outputs.out_webSiteName1 }}
       output_webSiteName2: ${{ steps.Infra.outputs.out_webSiteName2 }}
-      #output_webSiteName3: ${{ steps.Infra.outputs.out_webSiteName3 }}
+      output_webSiteName3: ${{ steps.Infra.outputs.out_webSiteName3 }}
       
     steps:
     - name: Login to Azure
@@ -187,6 +203,22 @@ jobs:
       with:
         app-name: ${{ needs.deploy_infrastructure.outputs.output_webSiteName2 }}
         package: './web/anonymous'
+
+    # Authentication AAD
+    - name: Download Build Artifacts-Web Application
+      uses: actions/download-artifact@v3
+      continue-on-error: false
+      with:
+        name: Web
+        path: ${{ github.workspace }}/web/authaad
+
+    # Deploy Web Application
+    - name: 'Deploy to Azure WebApp'
+      id: deploy-to-webapp-authaad
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ needs.deploy_infrastructure.outputs.output_webSiteName3 }}
+        package: './web/authaad'
 
     - name: Ensure Resource Group is Locked
       #if: contains(github.event_name, 'push')
