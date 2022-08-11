@@ -17,7 +17,7 @@ namespace Anonymous.Controllers
         /// </remarks>
         private static readonly DefaultAzureCredential tokenProvider = new();
 
-        private static readonly string[] allowed = { "https://TBD.azurewebsites.net/",
+        private static readonly string[] allowed = { "https://app2-m7wwu4af4xh2a.azurewebsites.net/",
                                                      "https://localhost"};
 
         public async Task<IActionResult> GetAzureMapsToken()
