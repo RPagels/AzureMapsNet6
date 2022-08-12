@@ -18,7 +18,7 @@ These are an Azure Maps examples for the 3 ways to secure Azure Maps.
 - step 3
 
 ## Authentication
-- SubscriptionKey.
+- Subscription Key.
   - TBD
 - Anonymous with Token.
   - TBD
@@ -40,6 +40,5 @@ These are an Azure Maps examples for the 3 ways to secure Azure Maps.
 - step 3
 
 ## Resources
-- Examples based on the following
-- [Repo by Clemens](https://github.com/cschotte/Maps) | [Blog by Clemens](TBD) |
+- The project is based on the Example Azure Maps with protected website[Repo by Clemens](https://github.com/cschotte/Maps) | [Blog by Clemens](TBD) |
 
