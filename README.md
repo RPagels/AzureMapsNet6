@@ -134,6 +134,22 @@ Use the following steps to create an Azure Map:
 - step 2
 - step 3
 
+## .Net 6.0 Application Update
+### appsettings.json
+- To implement AAD Authentication, update the appsettings.json file with settings from above steps.
+- Under **AzureAd**.
+    - "Instance": "https://login.microsoftonline.com/",
+    - "Domain": "<your AAD domain>", (i.e. **microsoft.onmicrosoft.com**)
+    - "TenantId": "<your tenant ID>",
+    "AppRegClientId": "<Application Registration Id>",
+    "CallbackPath": "/signin-oidc"
+    
+- To implement Azure Token Authentication, update the appsettings.json file with settings from above steps.
+- Under **Azure Maps**.
+    - "ClientId": "{{ Client ID From Azure Maps Account }}"
+    - "Tenant": "{{ Azure Tenant ID }}"
+    - "AppRegClientId": "{{ Client ID From Azure App Registration }}"
+
 ## Resources
 - The project is based on the Example Azure Maps with protected website [Repo by Clemens](https://github.com/cschotte/Maps) | [Blog by Clemens](TBD) |
 - [Azure-Portal](https://portal.azure.com/)
