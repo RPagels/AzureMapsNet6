@@ -16,7 +16,41 @@ These are an Azure Maps examples for the 3 ways to secure Azure Maps.
 - Create Resource Group in Azure.
 - TBD, output will be maps name, app service name, keyvault name
 
-## Azure Maps Service
+## Azure Maps Account
+Azure Maps is a portfolio of geospatial services that include service APIs for Maps, Search, Routing, Traffic and Time Zones. We will be using Azure Maps for visualization of the data in one of the labs. In this section, you will create the Azure Map component so we can use it later.
+
+Use the following steps to create an Azure Map:
+- In the Azure portal click **+Create a resource** at the top left of the screen.
+- In the **Search the Marketplace** textbox, type **Azure Maps** and press **Enter**.
+
+    ![Image](/images/maps-image1.png)
+
+- Select **Maps** from the list.
+
+    ![Image](/images/maps-image2.png)
+
+- Click **Create** to create a Maps Account.
+
+- Fill in the fields.
+
+    - **Subscription**, select the subscription to use for your Azure Maps Account.
+    - **Resource Group**, choose the one created already, i.e. **<*lastname*>-piday-rg**.
+    - **Name**, type in the name for your Azure Maps Account. This name must be globally unique.
+        - Type **<*lastname*>-azuremaps**.
+    - **Pricing Tier**, select **Standard S0**.
+
+    - Check the box **I confirm...**.
+
+        ![Image](/images/maps-image3.png)
+
+    - Select **Review + Create**, then **Create**.
+
+    > You can watch the notification pane to validate that it created successfully.
+
+
+
+
+
 - Create an Azure Maps Resource
 - Once deployment is complete, click Go to resource
 - Copy the **Client ID** because you will need it in later steps.
@@ -53,10 +87,11 @@ These are an Azure Maps examples for the 3 ways to secure Azure Maps.
   - coming soon...
 - Anonymous with Token.
   - coming soon...
-- Azure Active Directory.
+
+  ### Azure Active Directory.
   - The recommended approach is to use AAD to secure a web app, [Choose an authentication and authorization scenario](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario).
-  - From the Azure Portal home page, search for **Azure Active Directory**.
-  - Click **App registrations**.
+- From the Azure Portal home page, search for **Azure Active Directory**.
+- Click **App registrations**.
   - Click **New registration** and give it a name. (i.e. AzureMapsNet6)
   - Click **Register**
   - Copy the **Client ID** because you will need it in later steps.
@@ -80,7 +115,7 @@ These are an Azure Maps examples for the 3 ways to secure Azure Maps.
     - From the Azure Portal home page, search for **Azure Maps Service** name created earlier. (i.e. **maps-m7wwu4af4xh2a**)
     - Click **Access Control (IAM)**.
     - Click **Add a role assignement**.
-    - Click **Role*, select **Azure Maps Data Reader**
+    - Click **Role**, select **Azure Maps Data Reader**
     - Click **Next**.
     - Under **Assign access to**, click **Managed Identity**.
     - Click **+Select Members**.
