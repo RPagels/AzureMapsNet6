@@ -229,6 +229,25 @@ resource roleAssignmentForAppService1 'Microsoft.Authorization/roleAssignments@2
   }
 }
 
+resource roleAssignmentForAppService2 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(existing_appService2.id, azureMapsDataReaderRoleDefinitionId)
+  scope: existing_appService2
+  properties: {
+    principalType: 'ServicePrincipal'
+    principalId: existing_appService2.identity.principalId
+    roleDefinitionId: azureMapsDataReaderRoleDefinitionId
+  }
+}
+resource roleAssignmentForAppService3 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(existing_appService3.id, azureMapsDataReaderRoleDefinitionId)
+  scope: existing_appService3
+  properties: {
+    principalType: 'ServicePrincipal'
+    principalId: existing_appService3.identity.principalId
+    roleDefinitionId: azureMapsDataReaderRoleDefinitionId
+  }
+}
+
 
 
 
