@@ -1,7 +1,7 @@
 # AzureMapsNet6
 
 ## Introduction
-These are an Azure Maps examples for the 3 ways to secure Azure Maps.
+These are an Azure Maps examples for the different ways to secure Azure Maps.
 
 ## Build & Deploy Status
 [![Build_and_Deploy](https://github.com/RPagels/AzureMapsNet6/actions/workflows/Build_and_Deploy.yml/badge.svg)](https://github.com/RPagels/AzureMapsNet6/actions/workflows/Build_and_Deploy.yml)
@@ -88,10 +88,11 @@ Use the following steps to create an Azure Map:
 - Anonymous with Token.
   - coming soon...
 
-  ### Azure Active Directory.
-  - The recommended approach is to use AAD to secure a web app, [Choose an authentication and authorization scenario](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario).
-- From the Azure Portal home page, search for **Azure Active Directory**.
-- Click **App registrations**.
+### Azure Active Directory
+> The recommended approach is to use AAD to secure a web app, [Choose an authentication and authorization scenario](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario).
+
+  - From the Azure Portal home page, search for **Azure Active Directory**.
+  - Click **App registrations**.
   - Click **New registration** and give it a name. (i.e. AzureMapsNet6)
   - Click **Register**
   - Copy the **Client ID** because you will need it in later steps.
@@ -117,7 +118,7 @@ Use the following steps to create an Azure Map:
     - Click **Add a role assignement**.
     - Click **Role**, select **Azure Maps Data Reader**
     - Click **Next**.
-    - Under **Assign access to**, click **Managed Identity**.
+    - Under **Assign access to**, click **User, Group, or service principal**.
     - Click **+Select Members**.
     - In the search box, type web app name. (i.e. **app3-m7wwu4af4xh2a**)
     - Under **Select**, click on name.
