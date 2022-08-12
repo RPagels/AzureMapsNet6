@@ -34,7 +34,7 @@ Use the following steps to create an Azure Map:
 - Fill in the fields.
 
     - **Subscription**, select the subscription to use for your Azure Maps Account.
-    - **Resource Group**, choose the one created already, i.e. **<*lastname*>-piday-rg**.
+    - **Resource Group**, choose the one created already, i.e. **rg-<*lastname*>-azuremaps**.
     - **Name**, type in the name for your Azure Maps Account. This name must be globally unique.
         - Type **<*lastname*>-azuremaps**.
     - **Pricing Tier**, select **Standard S0**.
@@ -47,16 +47,11 @@ Use the following steps to create an Azure Map:
 
     > You can watch the notification pane to validate that it created successfully.
 
-
-
-
-
-- Create an Azure Maps Resource
 - Once deployment is complete, click Go to resource
 - Copy the **Client ID** because you will need it in later steps.
 - Click **Authentication**.
 
-- Note: there are two methods to authenticate for Azure Maps API calls
+> there are two methods to authenticate for Azure Maps API calls
 - Shared Key Authentication is great for testing and demos, but not recommended for use in Web applications. 
 - AAD (Azure Active Directory) Authentication is the recommended approach
   - See [Secure a web application with user sign-in](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-secure-webapp-users)
@@ -93,7 +88,7 @@ Use the following steps to create an Azure Map:
 
   - From the Azure Portal home page, search for **Azure Active Directory**.
   - Click **App registrations**.
-  - Click **New registration** and give it a name. (i.e. AzureMapsNet6)
+  - Click **New registration** and give it a name. (i.e. **AzureMapsNet6**)
   - Click **Register**
   - Copy the **Client ID** because you will need it in later steps.
   - Copy the **Tenant ID** because you will need it in later steps.
@@ -120,18 +115,13 @@ Use the following steps to create an Azure Map:
     - Click **Next**.
     - Under **Assign access to**, click **User, Group, or service principal**.
     - Click **+Select Members**.
-    - In the search box, type web app name. (i.e. **app3-m7wwu4af4xh2a**)
+    - In the search box, type Azure App Registration name from eariler. (i.e. **AzureMapsNet6**)
     - Under **Select**, click on name.
     - Click **Select**.
+    - Click **Review + assign**.
     
-    NOTE HERE:
-    Once the deployment pipeline is done, Managed Identity is used for each App Service and will have a unique name based on resource group name.
+> If using IaC (Bicep) to deploy pipeline, Managed Identity is used for each App Service and will have a unique name based on resource group name.
     
-
-  - step 3
-
-## Home Page
-![Alt text](MercuryHealthHomePage.png)
 
 ## Create the .Net 6.0 Application
 - step 1
@@ -146,4 +136,9 @@ Use the following steps to create an Azure Map:
 
 ## Resources
 - The project is based on the Example Azure Maps with protected website [Repo by Clemens](https://github.com/cschotte/Maps) | [Blog by Clemens](TBD) |
+- [Azure-Portal](https://portal.azure.com/)
+- [Use the Azure Maps map control]([https://portal.azure.com/](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-map-control)
+- [Choose an authentication and authorization scenario]([https://portal.azure.com/](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario)
 
+    
+    
