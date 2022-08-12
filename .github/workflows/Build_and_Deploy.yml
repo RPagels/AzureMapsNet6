@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 env:
-  Azure_Resource_GroupName: 'rg-AzureMapsNet6-v2'
+  Azure_Resource_GroupName: 'rg-AzureMapsNet6'
   Azure_Resource_GroupLocation: 'westus2'
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
