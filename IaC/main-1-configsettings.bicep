@@ -218,16 +218,16 @@ resource webSiteAppSettingsStrings3 'Microsoft.Web/sites/config@2021-03-01' = {
 // Azure built-in roles - https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
 //
 // Azure Maps Data Reader
-var azureMapsDataReaderRoleDefinitionId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '423170ca-a8f6-4b0f-8487-9e4eb8f49bfa')
-resource roleAssignmentForAppService1 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(existing_appService1.id, azureMapsDataReaderRoleDefinitionId)
-  scope: existing_appService1
-  properties: {
-    principalType: 'ServicePrincipal'
-    principalId: existing_appService1.identity.principalId
-    roleDefinitionId: azureMapsDataReaderRoleDefinitionId
-  }
-}
+// var azureMapsDataReaderRoleDefinitionId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '423170ca-a8f6-4b0f-8487-9e4eb8f49bfa')
+// resource roleAssignmentForAppService1 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+//   name: guid(existing_appService1.id, azureMapsDataReaderRoleDefinitionId)
+//   scope: existing_appService1
+//   properties: {
+//     principalType: 'ServicePrincipal'
+//     principalId: existing_appService1.identity.principalId
+//     roleDefinitionId: azureMapsDataReaderRoleDefinitionId
+//   }
+// }
 
 
 

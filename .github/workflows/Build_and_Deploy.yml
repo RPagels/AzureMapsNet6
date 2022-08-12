@@ -14,7 +14,7 @@ on:
 
 env:
   Azure_Resource_GroupName: 'rg-AzureMapsNet6'
-  Azure_Resource_GroupLocation: 'westus2'
+  Azure_Resource_GroupLocation: 'eastus2'
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
   WORKING_DIRECTORY: .
