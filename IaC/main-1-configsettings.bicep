@@ -267,7 +267,7 @@ resource azureMapsDataReaderRoleDefinition 'Microsoft.Authorization/roleDefiniti
 
 resource roleAssignmentForAppService 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(existing_azuremaps.id, existing_appService1.id, azureMapsDataReaderRoleDefinition.id)
-  scope: existing_azuremaps
+  scope: resourceGroup() //subscription() //existing_azuremaps
   properties: {
     principalType: 'ServicePrincipal'
     principalId: existing_appService1.identity.principalId
