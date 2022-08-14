@@ -1,3 +1,4 @@
+using AuthenticationAAD;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
@@ -25,6 +26,11 @@ builder.Services.AddControllersWithViews(options =>
 });
 builder.Services.AddRazorPages()
     .AddMicrosoftIdentityUI();
+
+// Setup Health Probe
+builder.Services.AddHealthChecks()
+    .AddCheck<MyAppHealthCheck>("Sample");
+
 
 var app = builder.Build();
 

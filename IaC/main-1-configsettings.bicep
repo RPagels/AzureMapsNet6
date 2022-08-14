@@ -220,57 +220,43 @@ resource webSiteAppSettingsStrings3 'Microsoft.Web/sites/config@2021-03-01' = {
 // Azure Maps Data Reader
 var azureMapsDataReaderRoleDefinitionId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '423170ca-a8f6-4b0f-8487-9e4eb8f49bfa')
 
-resource roleAssignmentForAppService1 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(existing_appService1.id, azureMapsDataReaderRoleDefinitionId)
-  scope: existing_appService1
-  properties: {
-    principalType: 'ServicePrincipal'
-    principalId: existing_appService1.identity.principalId
-    roleDefinitionId: azureMapsDataReaderRoleDefinitionId
-  }
-}
+// resource roleAssignmentForAppService2 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+//   name: guid(existing_appService2.id, azureMapsDataReaderRoleDefinitionId)
+//   scope: existing_appService2
+//   properties: {
+//     principalType: 'ServicePrincipal'
+//     principalId: existing_appService2.identity.principalId
+//     roleDefinitionId: azureMapsDataReaderRoleDefinitionId
+//   }
+// }
+// resource roleAssignmentForAppService3 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+//   name: guid(existing_appService3.id, azureMapsDataReaderRoleDefinitionId)
+//   scope: existing_appService3
+//   properties: {
+//     principalType: 'ServicePrincipal'
+//     principalId: existing_appService3.identity.principalId
+//     roleDefinitionId: azureMapsDataReaderRoleDefinitionId
+//   }
+// }
+
+
 
 resource roleAssignmentForAppService2 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(existing_appService2.id, azureMapsDataReaderRoleDefinitionId)
-  scope: existing_appService2
+  name: guid(existing_azuremaps.id, existing_appService2.id, azureMapsDataReaderRoleDefinitionId)
+  scope: resourceGroup() //subscription() //existing_azuremaps
   properties: {
     principalType: 'ServicePrincipal'
     principalId: existing_appService2.identity.principalId
     roleDefinitionId: azureMapsDataReaderRoleDefinitionId
   }
 }
+
 resource roleAssignmentForAppService3 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(existing_appService3.id, azureMapsDataReaderRoleDefinitionId)
-  scope: existing_appService3
+  name: guid(existing_azuremaps.id, existing_appService3.id, azureMapsDataReaderRoleDefinitionId)
+  scope: resourceGroup() //subscription() //existing_azuremaps
   properties: {
     principalType: 'ServicePrincipal'
     principalId: existing_appService3.identity.principalId
     roleDefinitionId: azureMapsDataReaderRoleDefinitionId
-  }
-}
-
-
-
-
-resource azureMapsDataReaderRoleDefinition 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
-  scope: subscription()
-  name: '423170ca-a8f6-4b0f-8487-9e4eb8f49bfa ' // Azure Maps Data Reader
-}
-
-// resource existing_azuremaps 'Microsoft.Maps/accounts@2021-12-01-preview' existing = {
-//   name: azuremapname //'foo-maps-account'
-// }
-
-// resource existing_appService1 'Microsoft.Web/sites@2022-03-01' existing = {
-//   name: webappName1 //'foo-app-service-web'
-// }
-
-resource roleAssignmentForAppService 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(existing_azuremaps.id, existing_appService1.id, azureMapsDataReaderRoleDefinition.id)
-  scope: resourceGroup() //subscription() //existing_azuremaps
-  properties: {
-    principalType: 'ServicePrincipal'
-    principalId: existing_appService1.identity.principalId
-    roleDefinitionId: azureMapsDataReaderRoleDefinition.id
   }
 }
