@@ -31,7 +31,6 @@ builder.Services.AddRazorPages()
 builder.Services.AddHealthChecks()
     .AddCheck<MyAppHealthCheck>("Sample");
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

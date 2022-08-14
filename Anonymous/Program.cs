@@ -1,7 +1,13 @@
+using Anonymous;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Setup Health Probe
+builder.Services.AddHealthChecks()
+    .AddCheck<MyAppHealthCheck>("Sample");
 
 var app = builder.Build();
 

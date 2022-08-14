@@ -246,7 +246,8 @@ var azureMapsDataReaderRoleDefinitionId = subscriptionResourceId('Microsoft.Auth
 
 // Add role assignment to App Service
 resource roleAssignmentForAppService2 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(existing_azuremaps.id, existing_appService2.id, azureMapsDataReaderRoleDefinitionId)
+  //name: guid(existing_azuremaps.id, existing_appService2.id, azureMapsDataReaderRoleDefinitionId)
+  name: guid(existing_appService2.id, azureMapsDataReaderRoleDefinitionId)
   scope: existing_appService2 //resourceGroup()
   properties: {
     principalType: 'ServicePrincipal'
@@ -257,7 +258,8 @@ resource roleAssignmentForAppService2 'Microsoft.Authorization/roleAssignments@2
 
 // Add role assignment to App Service
 resource roleAssignmentForAppService3 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(existing_azuremaps.id, existing_appService3.id, azureMapsDataReaderRoleDefinitionId)
+  //name: guid(existing_azuremaps.id, existing_appService3.id, azureMapsDataReaderRoleDefinitionId)
+  name: guid(existing_appService3.id, azureMapsDataReaderRoleDefinitionId)
   scope: existing_appService3 //resourceGroup()
   properties: {
     principalType: 'ServicePrincipal'
