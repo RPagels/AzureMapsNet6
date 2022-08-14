@@ -12,9 +12,8 @@ These are an Azure Maps examples for the different ways to secure Azure Maps.
 - Azure Maps + GetAzureMapsToken() = Anonymous
 - Azure Maps + GetAzureMapsToken() + .net/AAD Authentication = Authentication
 
-## Deploy Resources OR Create them manually
-- Create Resource Group in Azure.
-- TBD, output will be maps name, app service name, keyvault name
+## Detailed Version of Setup
+The Detailed Version are step-by-steps for those new to these environments.  The Deployment Pipeline version below below is intended for a quick setup and requires some familiarity with Azure and pipelines.
 
 ## Azure Resource Group
 - In a new browser window, sign in to the [Microsoft Azure Portal](https://portal.azure.com/).
@@ -132,12 +131,13 @@ Use the following steps to create an Azure Map:
     - Click **Review + assign**.
     
 > If using IaC (Bicep) to deploy pipeline, Managed Identity is used for each App Service and will have a unique name based on resource group name.
-    
 
-## Create the .Net 6.0 Application
-- step 1
-- step 2
-- step 3
+## Deployment Pipeline version of Setup
+
+
+## Deploy Resources OR Create them manually
+- Create Resource Group in Azure.
+- TBD, output will be maps name, app service name, keyvault name
 
 ## Build and Deployment
 - This example uses Biep for Infrastructure as Code.
