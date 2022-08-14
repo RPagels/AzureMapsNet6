@@ -12,22 +12,37 @@ These are an Azure Maps examples for the different ways to secure Azure Maps.
 - Azure Maps + GetAzureMapsToken() = Anonymous
 - Azure Maps + GetAzureMapsToken() + .net/AAD Authentication = Authentication
 
-## Deploy Resources OR Create them manually
-- Create Resource Group in Azure.
-- TBD, output will be maps name, app service name, keyvault name
+## Detailed Version of Setup
+The Detailed Version are step-by-steps for those new to these environments.  The Deployment Pipeline version below below is intended for a quick setup and requires some familiarity with Azure and pipelines.
+
+## Azure Resource Group
+- In a new browser window, sign in to the [Microsoft Azure Portal](https://portal.azure.com/).
+- In the Azure portal click **+Create a resource** at the top left of the screen.
+- In the **Search the Marketplace** textbox, type **Resource Group** and press **Enter**.
+- Select **Resource Group** from the list.
+
+    ![Image](/images/resourcegroup-image1.png)
+
+- Click **Create** to create a Resource Group.
+- Fill in the fields.
+
+    - **Subscription**, select the subscription to use for your Azure Maps Account.
+    - **Resource Group**, choose the one created already, i.e. **rg-<*lastname*>-azuremaps**.
+    - **Region**, select **East US**.
+    - click **Review + create**.
+
+> Map Accounts are only supported in region: East US, North Europe, West Central US, West Europe, and West US 2
 
 ## Azure Maps Account
 Azure Maps is a portfolio of geospatial services that include service APIs for Maps, Search, Routing, Traffic and Time Zones. We will be using Azure Maps for visualization of the data in one of the labs. In this section, you will create the Azure Map component so we can use it later.
 
 Use the following steps to create an Azure Map:
 - In the Azure portal click **+Create a resource** at the top left of the screen.
-- In the **Search the Marketplace** textbox, type **Azure Maps** and press **Enter**.
-
-    ![Image](/images/maps-image1.png)
+- In the **Search the Marketplace** textbox, type **Azure Maps Account** and press **Enter**.
 
 - Select **Maps** from the list.
 
-    ![Image](/images/maps-image2.png)
+    ![Image](/images/maps-image1.png)
 
 - Click **Create** to create a Maps Account.
 
@@ -35,17 +50,12 @@ Use the following steps to create an Azure Map:
 
     - **Subscription**, select the subscription to use for your Azure Maps Account.
     - **Resource Group**, choose the one created already, i.e. **rg-<*lastname*>-azuremaps**.
-    - **Name**, type in the name for your Azure Maps Account. This name must be globally unique.
-        - Type **<*lastname*>-azuremaps**.
-    - **Pricing Tier**, select **Standard S0**.
+    - **Region**, select **East US**.
+    - **Pricing tier**, select **Gen2**.
+    - **Terms**, select checkbox.
+    - click **Review + create**.
 
-    - Check the box **I confirm...**.
-
-        ![Image](/images/maps-image3.png)
-
-    - Select **Review + Create**, then **Create**.
-
-    > You can watch the notification pane to validate that it created successfully.
+> Map Accounts are only supported in region: East US, North Europe, West Central US, West Europe, and West US 2.
 
 - Once deployment is complete, click Go to resource
 - Copy the **Client ID** because you will need it in later steps.
@@ -121,12 +131,13 @@ Use the following steps to create an Azure Map:
     - Click **Review + assign**.
     
 > If using IaC (Bicep) to deploy pipeline, Managed Identity is used for each App Service and will have a unique name based on resource group name.
-    
 
-## Create the .Net 6.0 Application
-- step 1
-- step 2
-- step 3
+## Deployment Pipeline version of Setup
+
+
+## Deploy Resources OR Create them manually
+- Create Resource Group in Azure.
+- TBD, output will be maps name, app service name, keyvault name
 
 ## Build and Deployment
 - This example uses Biep for Infrastructure as Code.
