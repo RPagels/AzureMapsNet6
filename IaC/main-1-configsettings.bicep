@@ -243,9 +243,11 @@ var azureMapsDataReaderRoleDefinitionId = subscriptionResourceId('Microsoft.Auth
 
 // TBD - https://stackoverflow.com/questions/66993414/how-can-i-add-roles-to-a-resource-group-in-bicep-format
 //
+
+// Add role assignment to App Service
 resource roleAssignmentForAppService2 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(existing_azuremaps.id, existing_appService2.id, azureMapsDataReaderRoleDefinitionId)
-  scope: resourceGroup()
+  scope: existing_appService2 //resourceGroup()
   properties: {
     principalType: 'ServicePrincipal'
     principalId: existing_appService2.identity.principalId
@@ -253,9 +255,10 @@ resource roleAssignmentForAppService2 'Microsoft.Authorization/roleAssignments@2
   }
 }
 
+// Add role assignment to App Service
 resource roleAssignmentForAppService3 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(existing_azuremaps.id, existing_appService3.id, azureMapsDataReaderRoleDefinitionId)
-  scope: resourceGroup()
+  scope: existing_appService3 //resourceGroup()
   properties: {
     principalType: 'ServicePrincipal'
     principalId: existing_appService3.identity.principalId
