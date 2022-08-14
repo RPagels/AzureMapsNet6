@@ -32,6 +32,7 @@ param funcAppServiceprincipalId string
 // param secret_AzureWebJobsStorageValue string
 
 param tenant string
+//param mysubscription string = subscription();
 
 // Define KeyVault accessPolicies
 param accessPolicies array = [
@@ -240,10 +241,11 @@ var azureMapsDataReaderRoleDefinitionId = subscriptionResourceId('Microsoft.Auth
 // }
 
 
-
+// TBD - https://stackoverflow.com/questions/66993414/how-can-i-add-roles-to-a-resource-group-in-bicep-format
+//
 resource roleAssignmentForAppService2 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(existing_azuremaps.id, existing_appService2.id, azureMapsDataReaderRoleDefinitionId)
-  scope: resourceGroup() //subscription() //existing_azuremaps
+  scope: resourceGroup()
   properties: {
     principalType: 'ServicePrincipal'
     principalId: existing_appService2.identity.principalId
@@ -253,7 +255,7 @@ resource roleAssignmentForAppService2 'Microsoft.Authorization/roleAssignments@2
 
 resource roleAssignmentForAppService3 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(existing_azuremaps.id, existing_appService3.id, azureMapsDataReaderRoleDefinitionId)
-  scope: resourceGroup() //subscription() //existing_azuremaps
+  scope: resourceGroup()
   properties: {
     principalType: 'ServicePrincipal'
     principalId: existing_appService3.identity.principalId
