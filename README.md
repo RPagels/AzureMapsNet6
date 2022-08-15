@@ -220,7 +220,7 @@ Use the following steps to create an Azure Map:
 - step 3
 - coming soon...
 
-## .Net 6.0 Application Update
+## .Net 6.0 Application Update & Publish
 ### appsettings.json
 - To implement AAD Authentication, update the appsettings.json file with settings from above steps.
 - Under **AzureAd**.
@@ -248,9 +248,9 @@ Use the following steps to create an Azure Map:
     - For **Deployment Type**, select **Publish**, click **Finish**, click **Close**.
     - Click **Publish**.
     
-> Wait for web app to be published to Azure.
+> Wait for web app to be published to Azure.  If everything worked well, you will see this in the Browser.
     
-    
+    ![Image](/images/AuthenticationAAD-image1.png)
 
 ## Resources
 - The project is based on the Example Azure Maps with protected website [Repo by Clemens](https://github.com/cschotte/Maps) | [Blog by Clemens](TBD) |
