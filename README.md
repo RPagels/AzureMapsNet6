@@ -7,13 +7,15 @@ These are an Azure Maps examples for the different ways to secure Azure Maps.
 [![Build_and_Deploy](https://github.com/RPagels/AzureMapsNet6/actions/workflows/Build_and_Deploy.yml/badge.svg)](https://github.com/RPagels/AzureMapsNet6/actions/workflows/Build_and_Deploy.yml)
 
 ## Azure Maps Authentication Approaches
-- Azure Maps Subscription Key only, local machine
-- Azure Maps Subscription Key only, Web App using Key Vault
-- Azure Maps + GetAzureMapsToken() = Anonymous
-- Azure Maps + GetAzureMapsToken() + .net/AAD Authentication = Authentication
+1) Azure Maps Subscription Key only, local machine
+2) Azure Maps Subscription Key only, Web App using Key Vault
+3) Azure Maps + GetAzureMapsToken() = Anonymous
+4) Azure Maps + GetAzureMapsToken() + .net/AAD Authentication = Authentication
 
 ## Detailed Version of Setup
-The Detailed Version are step-by-steps for those new to these environments.  The Deployment Pipeline version below below is intended for a quick setup and requires some familiarity with Azure and pipelines.
+The Detailed Version are step-by-steps for those new to these environments.  The Build & Deployment Pipeline version below below is intended for a quick setup and requires some familiarity with Azure and pipelines, the **EASY BUTTON**.
+
+# 4) GetAzureMapsToken + AAD Authentication
 
 ## Azure Resource Group
 - In a new browser window, sign in to the [Microsoft Azure Portal](https://portal.azure.com/).
@@ -214,16 +216,13 @@ Use the following steps to create an Azure Key Vault:
   - Click **Select**.
   - Click **Review + assign**.
     
-# Authentication - Subscription Key
+# GetAzureMapsToken + Anonymous
   - coming soon...
 - Authentication - Anonymous with Token.
   - coming soon...
   
 # Build & Deployment Pipeline version of Setup
 - This example uses Biep for Infrastructure as Code.
-- step 1
-- step 2
-- step 3
 - coming soon...
 
 > If using IaC (Bicep) to deploy pipeline, Managed Identity is used for each App Service and will have a unique name based on resource group name.
