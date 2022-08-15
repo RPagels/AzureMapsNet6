@@ -11,6 +11,9 @@ builder.Services.AddHealthChecks()
 
 var app = builder.Build();
 
+// Setup Health Probe Endpoint
+app.MapHealthChecks("/healthy");
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
