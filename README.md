@@ -180,13 +180,19 @@ Use the following steps to create an Azure Map:
   - Copy the **Tenant ID** because you will need it in later steps.
   - Click on **Authentication**
   - Click on **+Add a platform**, choose **Web**.
-  - Under Redirect URIs, click **Add URI**, enter the wepp app URL. (i.e. **webapp1-<*lastname*>**)
+  - Under Redirect URIs, click **Add URI**, enter the wepp app URL.
+        - **https://*<webappnamehere*>*/signin-oidc** (i.e. **webapp1-<*lastname*>**)
+    
+> Important: Make sure this suffix, **/signin-oidc**, is added to end of URI.
+    
   - Under **Implicit grant and hybrid flows**
     - Check **Access tokens (used for implicit flows)**
     - Check **ID tokens (used for implicit and hybrid flows)**
   - Under **Supported account types**
     - Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**
   - Click **Save**
+   
+  ### Azure Active Directory API Permissions
   - Select **API permissions**
   - Under **Configured permissions**, click **+Add a permission**.
   - Click **APIs my organization uses**.
