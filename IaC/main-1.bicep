@@ -22,7 +22,7 @@ var keyvaultName = 'kv-${uniqueString(resourceGroup().id)}'
 // KeyVault Secret Names
 //param secret_AzureWebJobsStorageName string = 'AzureWebJobsStorage'
 param KeyVault_ClientIdName string = 'ClientId'
-param KeyVault_SubscriptionKeyName string = 'SubscriptionKeyName'
+param KeyVault_SubscriptionKeyName string = 'SubscriptionKey'
 
 // Tags
 var defaultTags = {
