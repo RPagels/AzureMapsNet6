@@ -264,14 +264,24 @@ Use the following steps to create an Azure Key Vault:
 > Wait for web app to be published to Azure.
 > - Login to Browser
 > - If everything worked well, you will see this in the Browser.
-    
+
+## GetAzureMapsToken + AAD Authentication    
 ![Image](/images/AuthenticationAAD-image1.png)
+
+## GetAzureMapsToken + Anonymous    
+![Image](/images/AuthenticationAnonymousWithToken-image1.png)
+
+## GetSubscriptionKey Using KeyVault    
+![Image](/images/SubscriptionKeyUsingKeyVault-image1.png)
+
+## GetSubscriptionKey Local development only   
+![Image](/images/SubscriptionKeyUsingLocal-image1.png)
 
 ## Resources
 - The project is based on the Example Azure Maps with protected website [Repo by Clemens](https://github.com/cschotte/Maps) | [Blog by Clemens](TBD) |
-- [Azure-Portal](https://portal.azure.com/)
-- [Use the Azure Maps map control]([https://portal.azure.com/](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-map-control)
-- [Choose an authentication and authorization scenario]([https://portal.azure.com/](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario)
+- Azure Portal - [Azure Portal](https://portal.azure.com/)
+- Azure Maps map SDK [Use the Azure Maps map control](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-map-control)
+- Authentication and authorization scenarios [Choose an authentication and authorization scenario](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario)
 
     
     
