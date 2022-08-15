@@ -21,8 +21,6 @@ The Detailed Version are step-by-steps for those new to these environments.  The
 - In the **Search the Marketplace** textbox, type **Resource Group** and press **Enter**.
 - Select **Resource Group** from the list.
 
-    ![Image](/images/resourcegroup-image1.png)
-
 - Click **Create** to create a Resource Group.
 - Fill in the fields.
 
@@ -41,8 +39,6 @@ Use the following steps to create an Azure Map:
 - In the **Search the Marketplace** textbox, type **Azure Maps Account** and press **Enter**.
 
 - Select **Maps** from the list.
-
-    ![Image](/images/maps-image1.png)
 
 - Click **Create** to create a Maps Account.
 
@@ -67,31 +63,53 @@ Use the following steps to create an Azure Map:
   - See [Secure a web application with user sign-in](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-secure-webapp-users)
 
 ## Azure App Service
-### Settings
-- Click on **Identity**.
-- Under **Status**, click **On**.
+
+Use the following steps to create an Azure Map:
+- In the Azure portal click **+Create a resource** at the top left of the screen.
+- In the **Search the Marketplace** textbox, type **WebApp** and press **Enter**.
+
+- Select **Web App** from the list.
+
+- Click **Create** to create a Maps Account.
+
+- Fill in the fields.
+
+    - **Subscription**, select the subscription to use for your Azure Maps Account.
+    - **Resource Group**, choose the one created already, i.e. **rg-<*lastname*>-azuremaps**.
+    - **Name**, enter a globally unique name. **webapp1-<*lastname*>**.
+    - **Publish**, select **Code**.
+    - **Runtime stack**, select **.Net6 (LTS)
+    - **Operating System**, select **Windows**.
+    - **Region**, select **East US**.
+    - **App Service Plan**, click **Create New**.
+    - **Name**, enter a globally unique name. **webappplan-<*lastname*>**.
+    - Under **Monitoring**, click **Create New**.
+    - **Name**, enter a globally unique name. **appinsights-<*lastname*>**.
+    - **Region**, select **East US**.
+    - click **Review + create**.
+    
+> Wait for resrouces to be created.
+    
+### App Service Identity
+- Click **Go to resource".
+- On the App Service Blade, click **Identity**
+- Under **Status**, click **On**, click **Save**, click **Yes** for confirmation dialog.
 - Under **Permissions**, click **Azure role assignments**.
 - Click **+Add role assigment**.
 - Under **Scope**, select **Subscription** or **Resource group**, from earlier step.
 - Under **Subscription**, select your Azure Subscription.
 - Under **Role**, select **Azure Maps Data Reader**.
-- Enter **AzureMaps:ClientId** for name.
-- Enter **@Microsoft.KeyVault(VaultName=<keyvaultnamehere>;SecretName=ClientId)**. (i.e. kv-m7wwu4af4xh2a)
-
-### Settings
-- Click on **Configuration**.
-- Under **Application Settings**, click **+New application setting.
-- Click **Ok**.
+- Click **Save**.
 
 ## Azure Key Vault
 - coming soon...
 
-
-## Authentication
-- Subscription Key.
-  - coming soon...
-- Anonymous with Token.
-  - coming soon...
+### App Service Configuration
+- On the App Service Blade, click **Configuration**
+- Under **Application Settings**, click **+New application setting**.
+- Enter **AzureMaps:ClientId** for name.
+- Enter **@Microsoft.KeyVault(VaultName=<keyvaultnamehere>;SecretName=ClientId)**. i.e. **keyvault-<*lastname*>**.
+- Click **Ok**.
 
 ### Azure Active Directory
 > The recommended approach is to use AAD to secure a web app, [Choose an authentication and authorization scenario](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario).
@@ -132,6 +150,11 @@ Use the following steps to create an Azure Map:
     
 > If using IaC (Bicep) to deploy pipeline, Managed Identity is used for each App Service and will have a unique name based on resource group name.
 
+## Authentication - Subscription Key
+  - coming soon...
+- Authentication - Anonymous with Token.
+  - coming soon...
+  
 ## Deployment Pipeline version of Setup
 
 
