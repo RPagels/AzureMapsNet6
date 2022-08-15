@@ -54,13 +54,17 @@ Use the following steps to create an Azure Map:
 > Map Accounts are only supported in region: East US, North Europe, West Central US, West Europe, and West US 2.
 
 - Once deployment is complete, click Go to resource
-- Copy the **Client ID** because you will need it in later steps.
+
 - Click **Authentication**.
+- Under **Azure Active Directory Authentication**, copy the **Client ID**, because you will need it in later steps.
+- Under **Primary Key**, copy the **SubscriptionKey**, because you will need it in later steps.
 
 > there are two methods to authenticate for Azure Maps API calls
 - Shared Key Authentication is great for testing and demos, but not recommended for use in Web applications. 
 - AAD (Azure Active Directory) Authentication is the recommended approach
   - See [Secure a web application with user sign-in](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-secure-webapp-users)
+
+> Wait for resrouces to be created.
 
 ## Azure App Service
 
@@ -102,7 +106,65 @@ Use the following steps to create an Azure Map:
 - Click **Save**.
 
 ## Azure Key Vault
-- coming soon...
+Enhance data protection and compliance. Secure key management is essential to protecting data in the cloud. With Azure Key Vault, you can safeguard encryption keys and application secrets like passwords.
+
+Use the following steps to create an Azure Map:
+- In the Azure portal click **+Create a resource** at the top left of the screen.
+- In the **Search the Marketplace** textbox, type **Key Vault** and press **Enter**.
+
+- Select **Key Vault** from Microsoft from the list.
+
+- Click **Create** to create a Maps Account.
+
+- Fill in the fields.
+
+    - **Subscription**, select the subscription to use for your Azure Maps Account.
+    - **Resource Group**, choose the one created already, i.e. **rg-<*lastname*>-azuremaps**.
+    - **Name**, enter a globally unique name. **keyvault-<*lastname*>**.
+    - **Region**, select **East US**.
+    - **Pricing tier**, select **Standard**.
+    - click **Review + create**.
+    
+> Wait for resrouces to be created.
+    
+### Key Vault Access Policies
+- Click **Go to resource".
+- On the App Service Blade, click **Access Policies**
+- Click **+Add Access Policy**.
+
+- Fill in the fields.
+
+    - **Key Permissions**, check **Get** and **List**.
+    - **Secret Permissions**, check **Get** and **List**.
+    - **Certificate Permissions**, check **Get** and **List**.
+    - **Select Principal**, select the Web App name created earlier. i.e. **webapp1-<*lastname*>**
+    - Click **Select**.
+ 
+- Under **Scope**, select **Subscription** or **Resource group**, from earlier step.
+- Under **Subscription**, select your Azure Subscription.
+- Under **Role**, select **Azure Maps Data Reader**.
+- Click **Save**.
+- Click **Add**.
+- Click **Save**.
+
+### Key Vault Secrets
+- Click **Go to resource".
+- On the Key Vault Blade, click **Secrets**
+- Click **+Generate/Import**.
+
+- Fill in the fields.
+
+    - **Name**, enter **ClientId**.
+    - **Value**, enter **Azure Maps Client ID** from above step.
+- Click **Create**.
+
+- Click **+Generate/Import**.
+
+- Fill in the fields.
+
+    - **Name**, enter **SubscriptionKey**.
+    - **Value**, enter **Azure Maps Subscription Key** from above step.
+- Click **Create**.
 
 ### App Service Configuration
 - On the App Service Blade, click **Configuration**
