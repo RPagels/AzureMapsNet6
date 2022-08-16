@@ -1,9 +1,11 @@
 ﻿using Azure.Core;
 using Azure.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuthenticationAAD.Controllers
 {
+    [Authorize]
     public class ApiController : Controller
     {
         /// <summary>
