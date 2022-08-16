@@ -1,7 +1,7 @@
 # AzureMapsNet6
 
 ## Introduction
-These are an Azure Maps examples for the different ways to secure Azure Maps.
+These are Azure Maps examples for the different ways to secure Azure Maps.  These are based off the blog post by Clemens.  For an indepth overview, be sure to check it out at [Azure Maps Web Application Authentication](https://github.com/cschotte/Maps)
 
 ## Build & Deploy Status
 [![Build_and_Deploy](https://github.com/RPagels/AzureMapsNet6/actions/workflows/Build_and_Deploy.yml/badge.svg)](https://github.com/RPagels/AzureMapsNet6/actions/workflows/Build_and_Deploy.yml)
@@ -278,7 +278,7 @@ Use the following steps to create an Azure Key Vault:
 ![Image](/images/SubscriptionKeyUsingLocal-image1.png)
 
 ## Resources
-- The project is based on the Example Azure Maps with protected website [Repo by Clemens](https://github.com/cschotte/Maps) | [Blog by Clemens](TBD) |
+- The project is based on the Example Azure Maps with protected website [Repo by Clemens](https://github.com/cschotte/Maps) | [Blog by Clemens](https://github.com/cschotte/Maps) |
 - Azure Portal - [Azure Portal](https://portal.azure.com/)
 - Azure Maps map SDK [Use the Azure Maps map control](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-map-control)
 - Authentication and authorization scenarios [Choose an authentication and authorization scenario](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication#choose-an-authentication-and-authorization-scenario)
