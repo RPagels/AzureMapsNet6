@@ -19,7 +19,9 @@ namespace AuthenticationAAD.Controllers
         /// </remarks>
         private static readonly DefaultAzureCredential tokenProvider = new();
 
-        // Change to your web app url.  i.e. https://webapp-pagels.azurewebsites.net
+        // Change to your web app url, then append ".azurewebsites.net/"
+        // i.e. https://webapp-pagels.azurewebsites.net/
+        //
         private static readonly string[] allowed = { "<webappurl>",
                                                      "https://localhost"};
 
