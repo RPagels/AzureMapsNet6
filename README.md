@@ -78,7 +78,7 @@ Use the following steps to create an Azure Map:
 
     - **Subscription**, select the subscription to use for your Azure Maps Account.
     - **Resource Group**, choose the one created already, (i.e. **rg-<*lastname*>-azuremaps**.)
-    - **Name**, enter a globally unique name, **webapp1-<*lastname*>**.
+    - **Name**, enter a globally unique name, **webapp-<*lastname*>**.
     - **Publish**, select **Code**.
     - **Runtime stack**, select **.Net6 (LTS)**
     - **Operating System**, select **Windows**.
@@ -133,10 +133,10 @@ Use the following steps to create an Azure Key Vault:
     - **Key Permissions**, check **Get** and **List**.
     - **Secret Permissions**, check **Get** and **List**.
     - **Certificate Permissions**, check **Get** and **List**.
-    - **Select Principal**, select the Web App name created earlier. (i.e. **webapp1-<*lastname*>**)
+    - **Select Principal**, select the Web App name created earlier. (i.e. **webapp-<*lastname*>**)
     - Click **Select**.
  
-- Under **Scope**, select select the Web App name created earlier. (i.e. **webapp1-<*lastname*>**)
+- Under **Scope**, select select the Web App name created earlier. (i.e. **webapp-<*lastname*>**)
 - Under **Subscription**, select your Azure Subscription.
 - Under **Role**, select **Azure Maps Data Reader**.
 - Click **Save**.
@@ -185,7 +185,7 @@ Use the following steps to create an Azure Key Vault:
   - Click on **Authentication**
   - Click on **+Add a platform**, choose **Web**.
   - Under Redirect URIs, click **Add URI**, enter the wepp app URL.
-        - **https://*<webappnamehere*>*/signin-oidc** (i.e. **webapp1-<*lastname*>**)
+        - **https://*<webappnamehere*>*/signin-oidc** (i.e. **webapp-<*lastname*>**)
     
 > Important: Make sure this suffix, **/signin-oidc**, is added to end of URI.
     
@@ -248,6 +248,11 @@ Use the following steps to create an Azure Key Vault:
     - "AppRegClientId": "{{ Client ID From Azure App Registration }}"
 - Click **Save** to save any changes.
 
+## Update APIController.cs file
+### Need to give token access to the above webapp URL. i.e. ()
+- Open the **ApiController.cs** file
+- On the line for **allowed**, change **-<*yourwebappname/*>** with your web app name (i.e. **webapp-<*lastname*>.azurewebsites.net/**).
+    
 ## Publish Application to Azure    
 - From **Visual Studio** or **Visual Studio Code**.
     - **<*Right-click*>** on Web App **AuthenticationAAD**, select **Publish**.
@@ -256,7 +261,7 @@ Use the following steps to create an Azure Key Vault:
     - For **Target**, select **Azure**, click **Next**.
     - For **Specific Target**, select **Azure App Service (Windows)**, click **Next**.
     - Selec the **Resource Group** created from earlier step. (i.e. **rg-<*lastname*>-azuremaps**.)
-    - Selec the **App Service** created from earlier step. (i.e. **webapp1-<*lastname*>**.)
+    - Selec the **App Service** created from earlier step. (i.e. **webapp-<*lastname*>**.)
     - Click **Next**.
     - For **Deployment Type**, select **Publish**, click **Finish**, click **Close**.
     - Click **Publish**.
