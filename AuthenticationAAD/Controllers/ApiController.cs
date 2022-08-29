@@ -26,13 +26,13 @@ namespace AuthenticationAAD.Controllers
 
         public async Task<IActionResult> GetAzureMapsToken()
         {
-            string? referer = HttpContext.Request.Headers["Referer"];
-            if (string.IsNullOrEmpty(referer))
-                return new UnauthorizedResult();
+            //string? referer = HttpContext.Request.Headers["Referer"];
+            //if (string.IsNullOrEmpty(referer))
+            //    return new UnauthorizedResult();
 
-            string? result = Array.Find(allowed, site => referer.StartsWith(site));
-            if (string.IsNullOrEmpty(result))
-                return new UnauthorizedResult();
+            //string? result = Array.Find(allowed, site => referer.StartsWith(site));
+            //if (string.IsNullOrEmpty(result))
+            //    return new UnauthorizedResult();
 
             // Managed identities for Azure resources and Azure Maps
             // For the Web SDK to authorize correctly, you still must assign Azure role based access control for the managed identity
