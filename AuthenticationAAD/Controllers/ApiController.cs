@@ -22,8 +22,7 @@ namespace AuthenticationAAD.Controllers
         // Change to your web app url, then append ".azurewebsites.net/"
         // i.e. https://webapp-pagels.azurewebsites.net/
         //
-        private static readonly string[] allowed = { "<webappurl>",
-                                                     "https://localhost"};
+        //private static readonly string[] allowed = { "<webappurl>", "https://localhost"};
 
         public async Task<IActionResult> GetAzureMapsToken()
         {
