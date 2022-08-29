@@ -19,7 +19,7 @@ namespace AuthenticationAAD.Controllers
 
         public IActionResult Index()
         {
-            // Save SubscriptionKey from Configuration Settings
+            // Save Azure Maps Client Id from Configuration Settings
             ViewData["ClientId"] = _configuration.GetSection("AzureMaps").GetValue<string>("ClientId");
 
             return View();

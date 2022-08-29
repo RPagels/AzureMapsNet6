@@ -19,20 +19,8 @@ namespace AuthenticationAAD.Controllers
         /// </remarks>
         private static readonly DefaultAzureCredential tokenProvider = new();
 
-        // Change to your web app url, then append ".azurewebsites.net/"
-        // i.e. https://webapp-pagels.azurewebsites.net/
-        //
-        //private static readonly string[] allowed = { "<webappurl>", "https://localhost"};
-
         public async Task<IActionResult> GetAzureMapsToken()
         {
-            //string? referer = HttpContext.Request.Headers["Referer"];
-            //if (string.IsNullOrEmpty(referer))
-            //    return new UnauthorizedResult();
-
-            //string? result = Array.Find(allowed, site => referer.StartsWith(site));
-            //if (string.IsNullOrEmpty(result))
-            //    return new UnauthorizedResult();
 
             // Managed identities for Azure resources and Azure Maps
             // For the Web SDK to authorize correctly, you still must assign Azure role based access control for the managed identity
