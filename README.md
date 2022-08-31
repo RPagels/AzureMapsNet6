@@ -236,16 +236,18 @@ Use the following steps to create an Azure Key Vault:
     - "Instance": "https://login.microsoftonline.com/",
     - "Domain": "**<*your AAD domain*>**", (i.e. **microsoft.onmicrosoft.com**)
     - "TenantId": "**<*your tenant ID*>**",
-    "AppRegClientId": "**<*Application Registration Id*>**",
-    "CallbackPath": "/signin-oidc"
-- Click **Save** to save any changes.
+    - "AppRegClientId": "**<*your App Registration Id*>**",
+    - "CallbackPath": "/signin-oidc"
+- Under **AzureMaps**.
+    - "ClientId": "**<*your Azure Maps Client ID*>**",
+    - Click **Save** to save any changes.
     
 ### To implement **Azure Token Authentication**, update the the following from above steps.
 - Open the **appsettings.json** file.
 - Under **Azure Maps**.
-    - "ClientId": "{{ Client ID From Azure Maps Account }}"
-    - "Tenant": "{{ Azure Tenant ID }}"
-    - "AppRegClientId": "{{ Client ID From Azure App Registration }}"
+    - "ClientId": "**<*your Azure Maps Client ID*>**"
+    - "Tenant": "**<*your tenant ID*>**"
+    - "AppRegClientId": "**<*your App Registration Id*>**"
 - Click **Save** to save any changes.
 
 ## Update ApiController.cs file
