@@ -250,13 +250,6 @@ Use the following steps to create an Azure Key Vault:
     - "AppRegClientId": "**<*your App Registration Id*>**"
 - Click **Save** to save any changes.
 
-## Update ApiController.cs file
-### To give token access to the your webapp URL, update the allowed urls.
-- Open the **ApiController.cs** file.
-- On the line for **allowed**, change **-<*webappurl*>** with your web app name, then append **.azurewebsites.net/**.  (i.e. **webapp-<*lastname*>.azurewebsites.net/**).
-
-- Click **Save** to save any changes.
-
 ## Publish Application to Azure    
 - From **Visual Studio** or **Visual Studio Code**.
     - **<*Right-click*>** on Web App **AuthenticationAAD**, select **Publish**.
