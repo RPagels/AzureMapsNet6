@@ -25,6 +25,14 @@ namespace AuthenticationAAD.Controllers
             return View();
         }
 
+        public IActionResult Creator()
+        {
+            // Save Azure Maps Client Id from Configuration Settings
+            ViewData["ClientId"] = _configuration.GetSection("AzureMaps").GetValue<string>("ClientId");
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
