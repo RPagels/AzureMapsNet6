@@ -11,6 +11,7 @@ These are Azure Maps examples for the different ways to secure Azure Maps.  Thes
 2) Azure Maps Subscription Key only, Web App using Key Vault
 3) Azure Maps + GetAzureMapsToken() = Anonymous
 4) Azure Maps + GetAzureMapsToken() + .net/AAD Authentication = Authentication
+5) Azure Maps Creator + GetAzureMapsToken() + .net/AAD Authentication = Authentication
 
 ## Detailed Version of Setup
 The Detailed Version are step-by-steps for those new to these environments.  The Build & Deployment Pipeline version below below is intended for a quick setup and requires some familiarity with Azure and pipelines, the **EASY BUTTON**.
